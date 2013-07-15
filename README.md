@@ -33,9 +33,9 @@ var objectbox = require('objectbox');
 var appKey = { /* your setting */ };
 var authOptions = { /* your setting */ };
 
-var client = new Dropbox.Client(appKey);
+var client = new dropbox.Client(appKey);
 
-client.authDriver(new Dropbox.AuthDriver.NodeServer(authOptions));
+client.authDriver(new dropbox.AuthDriver.NodeServer(authOptions));
 
 client.authenticate(function(error, data) {
   if (error) {
