@@ -79,11 +79,11 @@ client.authenticate(function(error, data) {
 
 Fig.1
 
-![Fig.1](https://raw.github.com/thunder9/objectbox/master/docs/fig1.png)
+![Fig.1](https://raw.github.com/thunder9/objectbox.js/master/docs/fig1.png)
 
 Fig.2
 
-![Fig.2](https://raw.github.com/thunder9/objectbox/master/docs/fig2.png)
+![Fig.2](https://raw.github.com/thunder9/objectbox.js/master/docs/fig2.png)
 
 # FP style APIs
 
