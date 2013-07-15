@@ -67,7 +67,7 @@
         var table = tableOrRecord.getTable();
         var oldValue = existingFields[fieldName];
         var newValue = obj[fieldName];
-        if (newValue === undefined) {
+        if (oldValue === undefined) {
           fieldValues[fieldName] = _visitObject('insert', table, fieldName, newValue, existingFields.depth + 1);
         } else if (isLink(oldValue)) {
           var record = table.get(toId(oldValue));
