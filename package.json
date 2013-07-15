@@ -1,0 +1,24 @@
+{
+  "name": "objectbox",
+  "author": {
+    "name": "thunder9",
+    "url": "https://github.com/thunder9"
+  },
+  "main": "objectbox.js",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thunder9/objectbox.js.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "xhr2": "*",
+    "open": "*"
+  },
+  "scripts": {
+    "test": "node test\\test.js"
+  }
+}
