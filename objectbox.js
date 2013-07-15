@@ -172,10 +172,8 @@
 
   // Retrieves the records from the `table` whose field match values of `fieldValues` and `depth`.
   var query = function(table, fieldValues, depth) {
-    if (_.isNumber(depth)) {
-      fieldValues['depth'] = depth;
-      return table.query(fieldValues);
-    }
+    if (_.isNumber(depth)) fieldValues['depth'] = depth;
+    return table.query(fieldValues);
   };
 
   // Helpers
