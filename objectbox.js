@@ -65,17 +65,17 @@
     _.each(_.keys(obj), function(fieldName) {
       if (op === 'update') {
         var table = tableOrRecord.getTable();
-        var value = existingFields[fieldName];
+        var oldValue = existingFields[fieldName];
         var newValue = obj[fieldName];
-        if (value === undefined) {
+        if (newValue === undefined) {
           fieldValues[fieldName] = _visitObject('insert', table, fieldName, newValue, existingFields.depth + 1);
-        } else if (isLink(value)) {
-          var record = table.get(toId(value));
-          value = fieldValues[fieldName] = _visitObject(op, record, fieldName, newValue, depth);
+        } else if (isLink(oldValue)) {
+          var record = table.get(toId(oldValue));
+          var value = fieldValues[fieldName] = _visitObject(op, record, fieldName, newValue, depth);
           if (!isLink(value)) deleteRecord(record);
-        } else if (isList(value)) {
+        } else if (isList(oldValue)) {
           fieldValues[fieldName] = _visitObject('insert', table, fieldName, newValue, depth);
-          _.each(value.toArray(), function(element) {
+          _.each(oldValue.toArray(), function(element) {
             if (isLink(element)) {
               var record = table.get(toId(element));
               deleteRecord(record);
