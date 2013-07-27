@@ -234,7 +234,7 @@
   // ---------------
 
   var Table = function(table) {
-    if (!(this instanceof Table)) return new Table(Table);
+    if (!(this instanceof Table)) return new Table(table);
     this.table = table;
   };
 
