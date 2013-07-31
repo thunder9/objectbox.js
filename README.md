@@ -1,7 +1,7 @@
 Objectbox.js
 ============
 
-Objectbox.js is a JavaScript library for storing and retrieving JavaScript object in Dropbox's [Datastore](https://www.dropbox.com/developers/datastore) with its nested structure using `Record Id`-based linking of the records.
+Objectbox.js is a JavaScript library for storing and retrieving a JavaScript object in Dropbox's [Datastore](https://www.dropbox.com/developers/datastore) with its nested structure using `RecordId`-based linking of the records.
 
 # Installation
 
@@ -39,7 +39,7 @@ client.authDriver(new dropbox.AuthDriver.NodeServer(authOptions));
 
 client.authenticate(function(error, data) {
   if (error) {
-    console.log('Error authenticating: ' + error);
+    console.log('Error authentication: ' + error);
     return;
   }
   console.log('The user is now authenticated');
@@ -92,7 +92,8 @@ Fig.2
 table // instance of Dropbox.Datastore.Table
 record// instance of Dropbox.Datastore.Record
 ary   // array of instances of Dropbox.Datastore.Record
-obj   // object retrieved form the datastore
+obj   // object that is retrieved from the datastore, or passed to the datastore
+val   // value that retrieved form the datastore
 
 o = objectbox
 
@@ -104,7 +105,8 @@ ary = o.query(table, fieldValues, depth)
 
 // Returns a field's value, or null if the field does not exist. If no `fieldName` is given,
 // returns an object that has the values of all the fields in the `record` and its children.
-obj = o.get(record, fieldName)
+val = o.get(record, fieldName)
+obj = o.get(record)
 
 // Changes a field's value.
 record = o.set(recordfieldName, value)
@@ -127,13 +129,15 @@ table // instance of Dropbox.Datastore.Table
 t     // instance of objectbox.Table
 r     // instance of objectbox.Record
 ary   // array of instances of objectbox.Record
-obj   // object retrieved form the datastore
+obj   // object that is retrieved from the datastore, or passed to the datastore
+val   // value that retrieved form the datastore
 
 t   = new objectbox.Table(table)
 r   = t.insert(obj)
 ary = t.query(fieldValues, depth)
 
-obj = r.get(fieldName)
+val = r.get(fieldName)
+obj = r.get()
 r   = r.set(fieldName, value)
 r   = r.update(obj)
 r   = r.deleteRecord()
